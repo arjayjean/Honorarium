@@ -1,0 +1,54 @@
+/* App */
+
+/* Title */
+#name {
+  font-family: "Georgia", Times, serif;
+  -webkit-text-stroke-width: 2.2px;
+  -webkit-text-stroke-color: black;
+  font-size: 50px;
+}
+
+/* Calculator */
+#border-color {
+  border-style: solid;
+  border-width: 5px;
+}
+
+/* All the buttons & inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+#inputOutput,
+#inputHours,
+#inputDays {
+  background-color: rgb(29, 29, 29);
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.col {
+  margin: 10px;
+}
+
+.input {
+  background-color: rgb(29, 29, 29);
+  transition: all 0.2s ease-in-out;
+}
+
+.input:hover {
+  color: gold;
+  background-color: rgb(7, 7, 57);
+  transform: scale(1.06);
+}
+
+#clear:hover {
+  background-color: rgb(187, 0, 0);
+}
+
+#enter:hover {
+  background-color: rgb(0, 105, 0);
+}
