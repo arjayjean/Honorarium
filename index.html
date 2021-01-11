@@ -10,24 +10,14 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <title>Honorarium: Salary Calculator</title>
   </head>
   <body class="bg-info">
 
-    <!-- TITLE -->
-      <div class="container container-sm container-md container-lg container-xl">
-        <div class="row">
-          <div class="col">
-            <p class="text-warning text-center" id="name">HONORARIUM</p>
-          </div>
-        </div>
-      </div>
-      <!-- TITLE -->
-
-
-
       <!-- CALCULATOR START -->
-        <div class="bg-dark container container-sm container-md container-lg container-xl rounded" id="border-color">
+        <div class="rounded container container-sm container-md container-lg container-xl" id="cal-bg">
 
 
           <!-- User will be able to figure out a yearly salary by entering how  -->
@@ -50,14 +40,14 @@
             <div class="col">
               <form>
                 <div>
-                  <input type="number" class="form-control text-white" id="inputHours" placeholder="Hours Worked " min="1" max="24" onchange="showHours()" required>
+                  <input type="number" class="bg-dark form-control text-white" id="inputHours" placeholder="Hours Worked " min="1" max="24" onchange="showHours()" required>
                 </div>
               </form>
             </div>
             <div class="col">
               <form>
                 <div class="form-group">
-                  <select id="inputDays" class="form-control text-white" onchange="showDays()">
+                  <select id="inputDays" class="bg-dark form-control text-white" onchange="showDays()">
                     <option selected disabled>Days Worked</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -78,30 +68,30 @@
           <!-- User will be able to click a number to input a salary  -->
           <!-- Start of Buttns -->
           <div class="row">
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="1" onclick="insert(1)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="2" onclick="insert(2)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="3" onclick="insert(3)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="1" onclick="insert(1)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="2" onclick="insert(2)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="3" onclick="insert(3)"></input>
           </div>
           <div class="row">
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="4" onclick="insert(4)"></input>
-            <input type="button" class="cal-btn input input col btn btn-dark text-center border border-white" value="5" onclick="insert(5)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="6" onclick="insert(6)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="4" onclick="insert(4)"></input>
+            <input type="button" class="bg-dark cal-btn input input col btn btn-dark text-center" value="5" onclick="insert(5)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="6" onclick="insert(6)"></input>
           </div>
           <div class="row">
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="7" onclick="insert(7)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="8" onclick="insert(8)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white" value="9" onclick="insert(9)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="7" onclick="insert(7)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="8" onclick="insert(8)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center" value="9" onclick="insert(9)"></input>
           </div>
           <div class="row">
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="0" onclick="insert(0)"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="." onclick="insert('.')"></input>
-            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="DELETE" onclick="del()"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center"value="0" onclick="insert(0)"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center"value="." onclick="insert('.')"></input>
+            <input type="button" class="bg-dark cal-btn input col btn btn-dark text-center"value="DELETE" onclick="del()"></input>
           </div>
           <div class="row">
-            <input type="button" class="opt-btn input col btn btn-dark text-center border border-white rounded-pill" value="CLEAR" onclick="clear()" id="clear"></input>
-            <input type="button" class="opt-btn input col btn btn-dark text-center border border-white rounded-pill" value="ENTER" onsubmit="enter()" id="enter"></input>
+            <input type="button" class="bg-dark opt-btn input col btn btn-dark text-center" value="CLEAR" onclick="clr()" id="clear"></input>
+            <input type="button" class="bg-dark opt-btn input col btn btn-dark text-center" value="ENTER" onclick="salary()" id="enter"></input>
           </div>
-        <!-- End of Buttns -->
+        <!-- End of Buttons -->
         
       </div>
     <!-- CALCULATOR END -->
