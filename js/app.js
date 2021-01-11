@@ -1,66 +1,166 @@
 let calculate = {
     pay: [],
-    hours: [],
-    days: [],
-    salary: 0
-};
+    hours: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    days: [1, 2, 3, 4, 5, 6, 7],
+    week: [],
+    month: [],
+    salary: []
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//HOURLY PAY
+//Click the buttons available on the app to be able to type out your hourly pay.
+//All of the values will go to calculate.pay object
+function insert(num) {
 
-//Click the buttons available on the app to be able to type out your hourly pay
-function insert(val) {
-    let $num = $('#inputOutput').val() + val;
+    let $num = $('#inputOutput').val() + num;
 
     $('#inputOutput').val($num)
-    console.log(`Hourly pay: $${$num}`);
-    
-    calculate.pay.push($num)
-    console.log(calculate.pay.push($num));
 
-    return $num;
+    pay = calculate.pay;
+    pay.push(num);
+
+    return num;
 };
 
+//This will take the calculate.pay object, join the values, and hold the hourly pay
+function hourPay() {
+    let payment = 0;
 
+    payment = pay.join('');
+
+    console.log(`Hourly Pay: $${payment}`)
+    return parseFloat(payment);
+
+};
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//HOURS WORKED
 // Select how many hours a user worked
-function hoursWrk(hrs) {
-    $('#inputHours').on('keyup mouseup', () => {
-        hrs = $('#inputHours').val();
-        console.log(`Hours worked: ${hrs} hour(s)`);
+function showHours() {
+    let $hours = parseInt($('#inputHours').val());
 
-        calculate.hours.push(hrs)
-        console.log(calculate.hours.push(hrs));
-        console.log(calculate.hours);
+    $('#inputHours').on('keyup mouseup', (e) => {
 
 
-        return hrs;
-    })
+        return $hours;
+    });
+
+    return $hours;
 };
 
-hoursWrk();
 
-$('#inputHours').keypress(function (e) {
+function hoursWrk() {
+    let hours = calculate.hours;
+
+    for (i = 0; i < hours.length; i++) {
+        if (showHours() === hours[i]) {
+            console.log(`Hours Worked: ${hours[i]}`);
+            return hours[i];
+        }
+    }
+};
+
+
+//This will prevent users from typing in the "Hours worked input box"
+$('#inputHours').keypress(function () {
     e.preventDefault();
 });
 
+//-----------------------------------------------------------------------------------------------------------------------
 
+//DAYS WORKED
 // Select how many days a user worked
-function daysWrk(days) {
-    $('#inputDays').change(() => {
-        let $selectedDay = $('#inputDays option:selected');
-        days = $selectedDay.val();
-        console.log(days);
-        console.log(`Days worked: ${days} day(s)`);
-        return days;
-    })
+function showDays() {
+    let $days = parseInt($('#inputDays').find(":selected").val());
+
+    $('#inputDays').on('change', (e) => {
+
+        return $days;
+    });
+
+    return $days
+};
+
+function daysWrk() {
+    let days = calculate.days;
+
+    for (i = 0; i < days.length; i++) {
+        if (showDays() === days[i]) {
+            console.log(`Days Worked: ${days[i]}`);
+            return days[i];
+        }
+    }
+};
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// WEEK HOURS
+// This takes both daysWrk() & hoursWrk() functions to be multiplied
+function weekHours() {
+    let week = calculate.week;
+
+    week.push(daysWrk() * hoursWrk());
+
+    console.log(`Hours Worked in a week: ${week}hr(s)`)
+    return week[0];
+};
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// MONTHLY PAY
+// This takes both weekHours() & hourPay() functions to be multiplied
+function monthPay() {
+    let month = calculate.month;
+
+    month.push((weekHours() * hourPay()) * 4);
+
+    console.log(`Monthly Pay: $${month}`)
+    return month[0];
+};
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// SALARY
+// This takes monthPay() & multiplies it by 12
+function salary() {
+    let salary = calculate.salary;
+
+    salary.push(monthPay() * 12);
+
+    console.log(`Salary: $${salary}`)
+    return salary[0];
 };
 
 
-daysWrk();
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Calculates the day, hours, and hourly pay to get your yearly salary
+//DELETE BUTTON
+// Delete the values that were inserted
+function del() {
+    let del = $('#inputOutput').val();
+    $('#inputOutput').val(del.substring(0, del.length - 1));
 
-function salary(results) {
-
+    let pay = calculate.pay;
+    pay.pop();
+    console.log(pay);
 };
 
-salary();
+
+//CLEAR BUTTON
+// Clears calculator of previous Salary
+function clear() {
+
+    let clr = $('#inputOutput').val();
+    $('#inputOutput').val(del.substring(0, del.length - 1));
+
+    let pay = calculate.pay;
+    pay.pop();
+    // let pay = calculate.pay;
+    // pay.pop();
+    // console.log(pay);
+};
+
+
 
 

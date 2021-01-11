@@ -36,7 +36,7 @@
             <div class="col">
               <form>
                 <div>
-                  <input type="text" class="form-control text-white text-right" id="inputOutput" placeholder="How much are you making..." disabled>
+                  <input type="text" class="form-control text-white text-right" id="inputOutput" placeholder="How much are you making an hour..." disabled>
                 </div>
               </form>
             </div>
@@ -50,14 +50,14 @@
             <div class="col">
               <form>
                 <div>
-                  <input type="number" class="form-control text-white" id="inputHours" placeholder="Hours Worked" min="1" max="24">
+                  <input type="number" class="form-control text-white" id="inputHours" placeholder="Hours Worked " min="1" max="24" onchange="showHours()" required>
                 </div>
               </form>
             </div>
             <div class="col">
               <form>
                 <div class="form-group">
-                  <select id="inputDays" class="form-control text-white">
+                  <select id="inputDays" class="form-control text-white" onchange="showDays()">
                     <option selected disabled>Days Worked</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -66,6 +66,7 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                     <option value="7">7</option>
+                    
                   </select>
                 </div>
               </form>
@@ -94,9 +95,10 @@
           <div class="row">
             <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="0" onclick="insert(0)"></input>
             <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="." onclick="insert('.')"></input>
+            <input type="button" class="cal-btn input col btn btn-dark text-center border border-white"value="DELETE" onclick="del()"></input>
           </div>
           <div class="row">
-            <input type="button" class="opt-btn input col btn btn-dark text-center border border-white rounded-pill" value="CLEAR" onclick="document.getElementById('inputOutput').value = ''" id="clear"></input>
+            <input type="button" class="opt-btn input col btn btn-dark text-center border border-white rounded-pill" value="CLEAR" onclick="clear()" id="clear"></input>
             <input type="button" class="opt-btn input col btn btn-dark text-center border border-white rounded-pill" value="ENTER" onsubmit="enter()" id="enter"></input>
           </div>
         <!-- End of Buttns -->
